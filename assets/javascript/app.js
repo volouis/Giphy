@@ -48,13 +48,35 @@ $(document).ready(function(){
             console.log(response);
             for(var i = 0; i < response.data.length; i++){
                 var contained = $("<div>");
+                var imggif = $("<img>");
 
                 contained.append("<p>Rating: " + response.data[i].rating + "</p>");
-                contained.append("<img src=" + response.data[i].images.fixed_height.url + ">");
+
+                imggif.attr("src", response.data[i].images.fixed_height_still.url);
+                imggif.attr("data-still", response.data[i].images.fixed_height_still.url);
+                imggif.attr("data-animate", response.data[i].images.fixed_height.url);
+                imggif.attr("data-state", "still");
+
+                imggif.addClass("gif");
+
+                contained.append(imggif);
 
                 $("#gifer").append(contained);
             }
         });
+    });
+
+   
+    $(document).on("click", "img.gif", function(){
+        var state = $(this).attr("data-state");
+
+        if(state === "still"){
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attr("data-state", "animate");
+        }else if(state === "animate"){
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", "still");
+        }
     });
 });
 
@@ -67,3 +89,11 @@ function animalBtn(ani){
 
     $("#saved").append(gifBtn);
 }
+
+
+//<img src="https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200_s.gif" 
+//data-still="https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200_s.gif" 
+//data-animate="https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200.gif" 
+//data-state="still" 
+//class="gif">
+ 
