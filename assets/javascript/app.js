@@ -40,17 +40,16 @@ $(document).ready(function(){
         var mal = $(this).attr("value")
 
         var queryURL = "https://api.giphy.com/v1/gifs/search?q="+ mal +"&api_key=dc6zaTOxFJmzC";
-        console.log(queryURL);
         $.ajax({
             url: queryURL,
             method: "GET"
         }).then(function(response){
-            console.log(response);
             for(var i = 0; i < response.data.length; i++){
                 var contained = $("<div>");
                 var imggif = $("<img>");
 
                 contained.append("<p>Rating: " + response.data[i].rating + "</p>");
+                contained.addClass("gif-info")
 
                 imggif.attr("src", response.data[i].images.fixed_height_still.url);
                 imggif.attr("data-still", response.data[i].images.fixed_height_still.url);

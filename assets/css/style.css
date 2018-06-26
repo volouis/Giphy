@@ -1,0 +1,33 @@
+#gifer{
+    float: left;
+    width: 900px;
+}
+
+.gif-info{
+    float: left;
+    margin-right: 10px;
+}
+
+.animal{
+    background-color: #30BCED;
+    color: azure;
+    width: 70px;
+    height: 30px;
+    margin: 10px;
+}
+
+#search{
+    background-color: #30BCED;
+    color: azure;
+    width: 70px;
+    height: 30px;
+}
+
+#inputAni{
+    width: 150px;
+    height: 30px;
+}
+
+#info{
+    float: left;
+}
