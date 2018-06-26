@@ -1,6 +1,6 @@
 #gifer{
     float: left;
-    width: 900px;
+    max-width: 900px;
 }
 
 .gif-info{
@@ -30,4 +30,5 @@
 
 #info{
     float: left;
+    margin-right: 10px;
 }
